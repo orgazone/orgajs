@@ -1,0 +1,25 @@
+{
+  "name": "orgajs",
+  "version": "0.0.1",
+  "homepage": "https://github.com/orgazone/orgajs",
+  "authors": [
+    "Relvin Gonzalez <aerostrings@gmail.com>"
+  ],
+  "description": "orga.zone api",
+  "main": "orgajs-0.0.1.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "orga",
+    "zone"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
