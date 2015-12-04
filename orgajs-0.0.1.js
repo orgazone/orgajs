@@ -254,7 +254,7 @@ var Orgajs = (function(){
      * @param {String} collection Optional sorter string
      * @param {Number} formid Optional if you need to list it in the admin section
      * @param {String} objid Optional sorter
-     * @param {File} file Rquired File to upload
+     * @param {File} file Required File to upload
      * @param {Object} filedata Optional object or array of file data. Ex : filename, date, creator, etc.
      * @param {Function} aCallback Function to be called once the api call has returned.
      */
