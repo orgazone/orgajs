@@ -195,7 +195,10 @@ var Orgajs = (function(){
      * @param {function} aCallback Function to be called after api call has returned.
      */
     Orgajs.prototype.getData = function(sortstring, sortint, collection, data, aCallback){
-        apiCall('request',this.getAppName(),sortstring,sortint,'',collection,'','','',data,this.getToken(),aCallback);
+        var appaction = 'request';
+        if(typeof data === 'string' || data instanceof String)
+            appaction = 'search';
+        apiCall(appaction,this.getAppName(),sortstring,sortint,'',collection,'','','',data,this.getToken(),aCallback);
     };
 
     /**
