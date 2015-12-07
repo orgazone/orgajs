@@ -1,4 +1,4 @@
-# [![Orgajs]]
+# Orgajs
 Api for using orga.zone in your own apps. 
 
 ## Installation
