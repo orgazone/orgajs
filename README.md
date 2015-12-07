@@ -4,7 +4,7 @@ Api for using orga.zone in your own apps.
 ## Installation
 Using Bower:
 
-bower install orgajs
+    bower install orgajs
 
 That's it!
 
