@@ -33,7 +33,7 @@ The "data" field on the callback function holds whatever the api returns. It cou
 And that's it ! After this you may use any of the available methods to interact with the Api.
 
 Remember to handle any errors, or expired sessions on your own. 
-One way would be to check if the error returned 401 or 403 and if it did, then logint he user again which will generate a new token.
+One way would be to check if the error returned 401 or 403 and if it did, then login the user again which will generate a new token.
 
 ##API
 
