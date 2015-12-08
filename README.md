@@ -1,4 +1,4 @@
-# Orgajs
+![orgajs](https://avatars1.githubusercontent.com/u/11753162?v=3&s=200) # Orgajs
 Api for using orga.zone in your own apps. 
 
 ## Installation
@@ -36,6 +36,9 @@ Remember to handle any errors, or expired sessions on your own.
 One way would be to check if the error returned 401 or 403 and if it did, then login the user again which will generate a new token.
 
 ##API
+
+### Create Methods
+
 
 
 
