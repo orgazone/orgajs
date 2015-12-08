@@ -42,7 +42,7 @@ One way would be to check if the error returned 401 or 403 and if it did, then l
 
 
 | Methods       | Arguments     | Description  |
-| ------------- |:-------------:| ---------------------------------------:|
+| ------------- |:-------------:| ------------:|
 | pushData      | sortstring   | {`String`} **Optional** sort string |
 |               | sortint      | {`Number`} **Optional** sort number |
 |               | formid       | {`Number`} **Optional** Administration form ID. |
