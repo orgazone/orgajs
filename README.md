@@ -97,6 +97,11 @@ One way would be to check if the error returned 401 or 403 and if it did, then l
 |               | objid        | {`String`} *Optional* sorter      |
 |               | filedata     | {`Object`} *Optional* object or array of file data. Ex : filename, date, creator, etc.
 |               | aCallback    | {`Function`} *Required*  Function to be called after api call has returned.|
+|               |              |               |
+| **sendEmail** - Function to send email.| to   | {`String`} *required* Email of the person to send email to | 
+|               | subject      | {`String`} *required* subject of the email |
+|               | message     | {`String`} *required* Message to be sent      |
+|               | aCallback    | {`Function`} *Required*  Function to be called after api call has returned.|
 
 ### Update Methods
 
