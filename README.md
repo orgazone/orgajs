@@ -48,8 +48,8 @@ One way would be to check if the error returned 401 or 403 and if it did, then l
 |               | sortint      | {`Number`} **Optional** sort number |
 |               | formid       | {`Number`} **Optional** Administration form ID. |
 |               | collection   | {`String`} **Optional** Name of collection |
-|               | data         | {`Object`} **Required** Object that has the data to be pushed.
-For example, "field1":"A string in field1","field2":"Another string with RAND(1,1000) = 763","field3":"field3 has a value here"|
+|               | data         | {`Object`} **Required** Object that has the data to be pushed. 
+|               |              |    For example, "field1":"A string in field1","field2":"Another string with RAND(1,1000) =             |            |               |    763","field3":"field3 has a value here"|
 |               | aCallback    | {`Function`} **Required**  Function to be called after api call has returned.|
 
 
