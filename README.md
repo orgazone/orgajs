@@ -105,5 +105,30 @@ One way would be to check if the error returned 401 or 403 and if it did, then l
 
 ### Update Methods
 
+| Methods       | Arguments     | Description  |
+| ------------- |:-------------:|:------------|
+| **updateUser** - Update the current logged in user.   | firstname   | {`String`} *required* new firstname to use |
+|               | lastname     | {`String`} *required* new lastname to use |
+|               | nickname       | {`String`} *required* new nickname to use |
+|               | aCallback    | {`Function`} *Required*  Function to be called after api call has returned.|
+|               |              |               |
+| **updateEntry** - Updates 1 entry in the APIv2 table, where appdata equals the primary key.   | sortstring   | {`String`} *Optional* sort string |
+|               | sortint     | {`Number`} *Optional* sort int |
+|               | data       | {`Object`} *required* Object or array with primary key and field to be updated. Example: Array("OZINDEX"=>"20150526202249-5303", "field1" => "...", "field2" => "...", "field3" => "...") |
+|               | aCallback    | {`Function`} *Required*  Function to be called after api call has returned.|
+|               |              |               |
+| **updateBy** - Update entries by other column in WHERE clause. Updates entries in the APIv2 table, where appdata equals the self selected key column   | data       | {`Object,Array`} *required* Array("MYCOLUMN"=>"OZOBJID", "MYVALUE" => "TESTING", "field2" => "...", "field3" => "...")with MYCOLUMN is the identifier of the entry to update and my value the search value. MYCOLUMN and MYVALUE must be the first two entries of the appdata object! |
+|               | aCallback    | {`Function`} *Required*  Function to be called after api call has returned.|
 
 
+### Delete Methods
+
+| Methods       | Arguments     | Description  |
+| ------------- |:-------------:|:------------|
+| **deleteEntry** - Deletes 1 entry from the APIv2 table, where data equals the primary key. The "sorter" fields are optional, but could limit the delete   | sortstring   | {`String`} *Optional* sort string |
+|               | sortint     | {`Number`} *Optional* sort int |
+|               | data       | {`Number`} *required* primary key of the entry to be deleted |
+|               | aCallback    | {`Function`} *Required*  Function to be called after api call has returned.|
+|               |              |               |
+| **deleteFile** - Delete a file     | filename           | {`String`} *required* name of file to be deleted (Ex. tarifa.xlsx) |
+|               | aCallback      | {`Function`} *required*  Function to be called after api call has returned.|
