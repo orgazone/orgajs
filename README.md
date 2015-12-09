@@ -39,6 +39,10 @@ One way would be to check if the error returned 401 or 403 and if it did, then l
 ##API
 **For Optional arguments, you may use `''` for Strings or `0` for numbers**
 
+    Ex: orgajs.getStatus('',function(data){
+                alert(data.data.LASTID);
+            });
+
 ### Create Methods
 
 | Methods       | Arguments     | Description  |
