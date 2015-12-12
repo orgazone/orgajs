@@ -12,7 +12,7 @@ refer to the docs on [docs.orga.zone](https://docs.orga.zone/backend-admin.php#a
 
 *   Register for free there
 *   Login and upload an empty index.html with your own AppName **appname**.orga.zone that you will need 
-*   Create your first user for the App with this AppName on https://apps.orga.zone/en/apiv2/gui-register.php?appname=**APPNAME**
+*   Create your first user for the App with this AppName on https://apps.orga.zone/en/apiv2/gui-register.php?appname=APPNAME
 
 ## Usage
 
