@@ -7,7 +7,11 @@ Using Bower:
 
     bower install orgajs
 
-That's it!
+That's it! But you have to have a free account on [apps.orga.zone](https://apps.orga.zone/) to use the API! Please
+refer to the docs on [docs.orga.zone](https://docs.orga.zone/backend-admin.php#app-hosting):
+
+*   Register for free there
+*   Login and upload an empty index.html with your own AppName **appname**.orga.zone that you will need with the user login
 
 ## Usage
 
