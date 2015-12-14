@@ -9,7 +9,7 @@ var Orgajs = (function(){
     var apiURL = "https://apps.orga.zone/apiv2/";
 
     //private shared function for making api calls
-    function apiCall(appaction, appname, appsortstr, appsortint, formid, appcollection, appobjid, appparent, file, appdata, token,aCallback) {
+    function apiCall(appaction, appname, appsortstr, appsortint, formid, appcollection, appobjid, appparent, file, lang, appdata, token,aCallback) {
         var apiUrl = apiURL + "?appaction=" + appaction;
         var anHttpRequest = new XMLHttpRequest();
         var response = "";
@@ -29,6 +29,7 @@ var Orgajs = (function(){
         else if (appdata) {
             apiUrl = apiUrl + "&appdata=" + JSON.stringify(appdata);
         }
+        if(lang) apiUrl = apiUrl + "&lang="+lang;
         if(token)
             apiUrl += "&token="+token;
 
@@ -91,8 +92,6 @@ var Orgajs = (function(){
         this.getAppName = function(){
             return app;
         };
-
-
     };
 
     /**
@@ -120,7 +119,7 @@ var Orgajs = (function(){
      * @param {function} aCallback Function to use as callback
      */
     Orgajs.prototype.showUser = function(aCallback){
-        apiCall('showuser',this.getAppName(),'','','','','','','','',this.getToken(),aCallback);
+        apiCall('showuser',this.getAppName(),'','','','','','','','','',this.getToken(),aCallback);
     };
     /**
      * Function to get information about a user using their email
@@ -129,7 +128,7 @@ var Orgajs = (function(){
      */
     Orgajs.prototype.getUser = function(email,aCallback){
         var appdata = email;
-        apiCall('usrinfo',this.getAppName(),'','','','','','','',appdata,this.getToken(),aCallback);
+        apiCall('usrinfo',this.getAppName(),'','','','','','','','',appdata,this.getToken(),aCallback);
     };
 
     /**
@@ -145,7 +144,7 @@ var Orgajs = (function(){
             'lastname':lastname,
             'nickname':nickname
         };
-        apiCall('updateuser',this.getAppName(),'','','','','','','',appdata,this.getToken(),aCallback);
+        apiCall('updateuser',this.getAppName(),'','','','','','','','',appdata,this.getToken(),aCallback);
     };
 
     /**
@@ -159,7 +158,7 @@ var Orgajs = (function(){
             'to':to,
             'destination':destination
         };
-        apiCall('invite',this.getAppName(),'','','','','','','',appdata,this.getToken(),aCallback);
+        apiCall('invite',this.getAppName(),'','','','','','','','en',appdata,this.getToken(),aCallback);
     };
 
     /**
@@ -168,7 +167,7 @@ var Orgajs = (function(){
      * @param {function} aCallback Function that will be called after the api call has returned
      */
     Orgajs.prototype.getStatus = function(sortstring,aCallback){
-        apiCall('status',this.getAppName(),sortstring,'','','','','','','',this.getToken(),aCallback);
+        apiCall('status',this.getAppName(),sortstring,'','','','','','','','',this.getToken(),aCallback);
     };
 
     /**
@@ -182,7 +181,7 @@ var Orgajs = (function(){
      * @param {function} aCallback Function to be called after api call has returned.
      */
     Orgajs.prototype.pushData = function(sortstring, sortint, formid, collection, data, aCallback){
-        apiCall('push',this.getAppName(),sortstring,sortint,formid,collection,'','','',data,this.getToken(),aCallback);
+        apiCall('push',this.getAppName(),sortstring,sortint,formid,collection,'','','','',data,this.getToken(),aCallback);
     };
 
     /**
@@ -198,7 +197,7 @@ var Orgajs = (function(){
         var appaction = 'request';
         if(typeof data === 'string' || data instanceof String)
             appaction = 'search';
-        apiCall(appaction,this.getAppName(),sortstring,sortint,'',collection,'','','',data,this.getToken(),aCallback);
+        apiCall(appaction,this.getAppName(),sortstring,sortint,'',collection,'','','','',data,this.getToken(),aCallback);
     };
 
     /**
@@ -208,7 +207,7 @@ var Orgajs = (function(){
      * @param {function} aCallback  function called after the api call has returned
      */
     Orgajs.prototype.requestByID = function(id,aCallback){
-        apiCall('requestById',this.getAppName(),'','','','','','','',id,this.getToken(),aCallback);
+        apiCall('requestById',this.getAppName(),'','','','','','','','',id,this.getToken(),aCallback);
     };
 
     /**
@@ -220,7 +219,7 @@ var Orgajs = (function(){
      * @param {Function} aCallback Function to be called after api call has returned
      */
     Orgajs.prototype.deleteEntry = function(sortstring,sortint,data,aCallback){
-        apiCall('delete',this.getAppName(),sortstring,sortint,'','','','','',data,this.getToken(),aCallback);
+        apiCall('delete',this.getAppName(),sortstring,sortint,'','','','','','',data,this.getToken(),aCallback);
     };
 
     /**
@@ -232,7 +231,7 @@ var Orgajs = (function(){
      * @param {Function} aCallback Function to be called after the api call has returned.
      */
     Orgajs.prototype.updateEntry = function(sortstring, sortint, data, aCallback){
-        apiCall('update',this.getAppName(),sortstring,sortint,'','','','','',data,this.getToken(),aCallback);
+        apiCall('update',this.getAppName(),sortstring,sortint,'','','','','','',data,this.getToken(),aCallback);
     };
 
     /**
@@ -244,7 +243,7 @@ var Orgajs = (function(){
      * @param {Function} aCallback function to be called once the api call has returned.
      */
     Orgajs.prototype.updateBy = function(data, aCallback){
-        apiCall('updateby',this.getAppName(),'','','','','','','',data,this.getToken(),aCallback);
+        apiCall('updateby',this.getAppName(),'','','','','','','','',data,this.getToken(),aCallback);
     };
 
     /**
@@ -262,7 +261,7 @@ var Orgajs = (function(){
      * @param {Function} aCallback Function to be called once the api call has returned.
      */
     Orgajs.prototype.uploadFile = function(sortint,parent,collection,formid,objid,file,filedata,aCallback){
-        apiCall('upload',this.getAppName(),'FILE',sortint,formid,collection,objid,parent,file,filedata,this.getToken(),aCallback);
+        apiCall('upload',this.getAppName(),'FILE',sortint,formid,collection,objid,parent,file,'',filedata,this.getToken(),aCallback);
     };
 
     /**
@@ -271,7 +270,7 @@ var Orgajs = (function(){
      * @param {Function} aCallback Function to be called after api all has returned.
      */
     Orgajs.prototype.getFile = function(filename,aCallback){
-        apiCall('getfile',this.getAppName(),'','','','','','','',filename,this.getToken(),aCallback);
+        apiCall('getfile',this.getAppName(),'','','','','','','','',filename,this.getToken(),aCallback);
     };
 
     /**
@@ -280,7 +279,7 @@ var Orgajs = (function(){
      * @param {Function} aCallback Function to be called after api call has returned.
      */
     Orgajs.prototype.deleteFile = function(filename, aCallback){
-        apiCall('delfile',this.getAppName(),'','','','','','','',filename,this.getToken(),aCallback);
+        apiCall('delfile',this.getAppName(),'','','','','','','','',filename,this.getToken(),aCallback);
     };
 
     /**
@@ -294,7 +293,7 @@ var Orgajs = (function(){
      * @param {Function} aCallback Function to be called after the api call has returned.
      */
     Orgajs.prototype.searchFiles = function(sortstring,sortint,formid,collection,objid,filedata,aCallback){
-        apiCall('searchfiles',this.getAppName(),sortstring,sortint,formid,collection,objid,'','',filedata,this.getToken(),aCallback);
+        apiCall('searchfiles',this.getAppName(),sortstring,sortint,formid,collection,objid,'','','',filedata,this.getToken(),aCallback);
     };
 
     /**
@@ -311,7 +310,7 @@ var Orgajs = (function(){
             subject:subject,
             text:message
         };
-        apiCall('sendmail',this.getAppName(),'','','','','','','',appdata,this.getToken(),aCallback);
+        apiCall('sendmail',this.getAppName(),'','','','','','','','',appdata,this.getToken(),aCallback);
     };
 
 
