@@ -146,5 +146,3 @@ One way would be to check if the error returned 401 or 403 and if it did, then l
 ## Links
 * [Official docs](https://docs.orga.zone/)
 * [Orga.zone site](https://orga.zone/)
-* [Orgajs site](http://orgajs.org/)
-
